@@ -3,8 +3,21 @@
 language: clojure
 
 # Version number
-go:
+lein:
   - lein2
+services:
+  - mysql
+  - postgres
+  - mongodb
+  - elasticsearch
+  - redis
+  - memcache
+  - rabbitmq
+  - neo4j
+  - rethinkdb
+  - couchdb
+  #- selenium
+  
 build:
   pre_ci_boot:
     image_name: drydock/u12cloall
