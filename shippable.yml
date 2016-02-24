@@ -13,6 +13,8 @@ services:
   - redis
   - memcache
   - rabbitmq
+  #- selenium
+  #- sqlite
 build:
   pre_ci_boot:
     image_name: drydock/u12clopls
