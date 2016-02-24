@@ -16,6 +16,7 @@ services:
   - neo4j
   - rethinkdb
   - couchdb
+  - cassandra
   #- selenium
   
 build:
