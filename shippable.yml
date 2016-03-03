@@ -12,7 +12,7 @@ services:
   - elasticsearch
   - redis
   - memcache
-  - rabbitmq
+  - rabbitmq  
   #- selenium
   #- sqlite
 build:
