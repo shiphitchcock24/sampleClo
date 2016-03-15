@@ -5,7 +5,7 @@ language: clojure
 # Version number
 lein:
   - lein2
-  
+   
 services:
   - mysql
   - postgres
