@@ -5,6 +5,60 @@ language: clojure
 # Version number
 lein:
   - lein2
+
+env:
+  global:
+    - secure: LhVeM6HDcPPBeNrdIBSZG7aVhNZRIs7wClmcMQ68lnKMIc8BtLU/bzivuEeSfbr1VDlsDve/EgXQIh+YKIwGn+FPJ18OVxX6CIVr8Kg2Gn/XqeccSuA4bmdixNyBWS78boP8aPC85deyf8ioNMVbpe/XdwDJq2sb4wsRIBa+RuIMKRZb9bIOuYQeNIr/gydlarcIzDxwr3dZAHpmDjdlRx8BO8OMzfrl7jx0QiGNPVYFsXc9k+9PDzWVCkibhXpmLixj66Jzoj6HbYtkle4yw093FKgA+12OL1qsRzKlTt67nnQ9SH0B8rGUewwOzF7QEKW8T+yXU0qZDb1ddUfJLA==
+    - secure: vD0PySa640AwchwhiGzXiy0CkvVypx4dhbR2swk7vwJy6X2znQa9na7c+C04NrAFrtyJbMuGfVu+kObIQoTf8Nx++guDmZnSPKvGGqYqI8IHanYGX/n0rQK8HVagGGMiAgqLClqQMzN4r8JLY2xv0f/Cb8jmyS/Ck2/ntvol5jJ4J6eUfVtqSlyZrTDfeoSnDruySygs233X7lQ/PC2Va39tuwZgODQK9mUFhui3wvniSskVj7fPg3WAJ1jG5kQRTgPx0dyx9+ukLqHgatHnZEnbjWXcytehwJnjDtPgOvnuyKUIEvKTU6o1ONtAkQsbICmnCALv6q3LlesmIEpKug==
+    - M3=THREE
+    - M4=FOUR
+ 
+  matrix:
+    - secure: 5REf6eg4QvUvS+QaDIAEtuDsA+t7OaSj2MjkjfrHbua4+VtAJhDiXJAMhJ/9WQ4pAOGVMWgG45ZswY/DUKhjOIzTPvj7pHq34spV1XmiXec2T7sHmFcTolJFkhmBHF7NGyUVK/FR+aYW7SlR7ir26D8ROk86UDtPijwBO55ifnw3aZ03TfnanLhJ3bPlmbUChkW8YRt/Rvpbxyu7PazLB+/sqUPQjDXjDk9a0dIKL5B3odMSNdECj/rvHOr1iT8vN8akHGb1/Nckvf8bGVsOge9kt3uggUWDt65TOWfLYKK4ZMSJqYDeau5zzOMLw9D8gQdLNqkTWQ47tA7CEU8ibg==
+    - secure: CKZSmTwwYOEYxiHTzqBnkqvlQirkvS+OBYnIrfjKm7imxy5eUscZizMepCfq/A9oQl01jGIl8mBcLvKDiFYCKYxaJQdjVdimtn0zIz3WsLNnl5BY0CKT8H3KIrDU854AQEYVheI9c/rmKyr+l+ZyowXDRurkeQcneHQ29kstmgZ/ajHyz9/sYUAuvDT9eUkeRc/AkPOcK2x0p4SZWJCPqDhiXGl9jCZ/wWncnJgkWYU1BTnu5YMAgkDormCXdUcWcycpypGyiNd8KMjaRxSdzp4sbavmpg9t0kmsndCzyBeG8rUEp4W4P28S0ITjNK8SsAcvEroGPG04sH0bRdXMmA==
+    - M1=ONE
+    - M2=TWO
 build:
   ci:
     - lein version
+    - echo $FOO
+    - echo $TOO
+    - echo $GOO
+    - echo @SOO
+
+integrations:     
+  notifications:
+    - integrationName: ship_slack
+      type: slack
+      recipients:
+        - "#random" 
+        - "#public-chnl" 
+      on_start: always
+      on_success: never
+      on_failure: always
+      
+    - integrationName: "ship-slack1"
+      type: slack
+      on_failure: always
+      on_start: always
+      on_success: always
+      recipients:
+        - "#general"
+      
+    - integrationName: email      
+      type: email   
+      recipients: 
+          - sreyaj10@gmail.com
+          - sreya@shippable.com
+      on_start: always
+      on_success: always 
+      on_failure: always 
+    
+    - integrationName: irc   
+      type: irc
+      recipients:
+        - "chat.freenode.net#test-irc"
+        - "chat.freenode.net#test1-irc"
+      on_start: always
+      on_success: always      
+      on_failure: always    
