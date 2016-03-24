@@ -24,7 +24,7 @@ build:
     - echo $FOO
     - echo $TOO
     - echo $GOO
-    - echo @SOO
+    - echo $SOO
 
 integrations:     
   notifications:
